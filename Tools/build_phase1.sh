@@ -7,16 +7,26 @@ if [ -n "${CSC_PATH:-}" ]; then
     CSC="$CSC_PATH"
 else
     CSC=""
-    for candidate in \
-        "/c/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/Roslyn/csc.exe" \
-        "/c/Program Files/Microsoft Visual Studio/2022/Enterprise/MSBuild/Current/Bin/Roslyn/csc.exe" \
-        "/c/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/Roslyn/csc.exe" \
-        "/c/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/Roslyn/csc.exe"; do
-        if [ -f "$candidate" ]; then
-            CSC="$candidate"
-            break
+    VSWHERE="/c/Program Files (x86)/Microsoft Visual Studio/Installer/vswhere.exe"
+    if [ -x "$VSWHERE" ]; then
+        found=$("$VSWHERE" -latest -products '*' -find 'MSBuild\Current\Bin\Roslyn\csc.exe')
+        found=${found%%$'\n'*}
+        if [ -n "$found" ]; then
+            CSC=$(cygpath -u "$found")
         fi
-    done
+    fi
+    if [ -z "$CSC" ]; then
+        for candidate in \
+            "/c/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/Roslyn/csc.exe" \
+            "/c/Program Files/Microsoft Visual Studio/2022/Enterprise/MSBuild/Current/Bin/Roslyn/csc.exe" \
+            "/c/Program Files/Microsoft Visual Studio/2022/Professional/MSBuild/Current/Bin/Roslyn/csc.exe" \
+            "/c/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/Roslyn/csc.exe"; do
+            if [ -f "$candidate" ]; then
+                CSC="$candidate"
+                break
+            fi
+        done
+    fi
 fi
 if [ -z "$CSC" ] || [ ! -f "$CSC" ]; then
     echo "Roslyn csc.exe not found. Install VS2022 BuildTools or set CSC_PATH." >&2
