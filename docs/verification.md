@@ -1,6 +1,6 @@
 # Verification record / 验证记录
 
-Date / 日期: **2026-10-30**
+Date / 日期: **2026-10-30; player build and smoke tests completed 2026-10-31**
 Candidate / 候选版本: public-source staging snapshot based on `fc080e2`, with the portability and documentation changes in this directory.
 Platform / 平台: Windows 11 x64
 
@@ -21,7 +21,7 @@ This file records only checks actually executed. “Not run” is not a passing 
 | Clean staged archive / 干净暂存归档 | Fresh `git archive` with no `Library`, `work`, or `bin` | **Python 198 run, 168 passed, 30 skipped; C# 40 passed; ConsoleFlightSim smoke passed; repository check passed.** The mass-properties fixture is tracked and the JSON test is line-ending independent. / 干净归档中 Python、C#、控制台烟测和仓库检查均通过，夹具完整，JSON 测试不受行尾影响。 |
 | Clean Unity import and PlayMode / 干净 Unity 导入与 PlayMode | Unity 2022.3.62f3c1, D3D12, no previous `Library` | **451 run, 443 passed, 1 failed, 7 skipped** on the full run. The failure was `R03_EndToEnd_SetParmsViaBuilderActuallyApplies` because OpenVSP was not configured. After adding the explicit dependency skip, the filtered test **passed 1/1 with `VSPROOT`** and **skipped 1/1 without it**. The complete suite was not rerun after that test-only change. / 全套 443 通过、1 失败、7 跳过；唯一失败在配置 OpenVSP 后单独通过，未配置时正确跳过。修改后未重跑全套。 |
 | Manual flight and workshop UI / 手动飞行与工坊界面 | Unity Editor | **Not run.** / 未运行。 |
-| Windows player build and three scene arguments / 独立程序与三个场地参数 | `GameBuild.BuildWindows` | **Build running; scene smoke tests not run.** / 构建进行中，场地烟测未运行。 |
+| Windows player build and three scene arguments / 独立程序与三个场地参数 | `GameBuild.BuildWindows` | **Build succeeded 2026-10-31.** Forest, island, and alpine each launched and exited through a 5-second FpsProbe; no exceptions or shader errors were logged. A separate 10-second forest `-autofly` run also exited normally. The environment produced only about 0.4 FPS and the autofly probe did not establish takeoff, so interactive flight and visual quality remain unverified. / 构建成功，三个场地均启动并正常退出，未见异常日志；当前环境帧率极低，不能把烟测视为交互飞行或视觉验证通过。 |
 | Full six-case TestUAV regeneration / TestUAV 六工况完整重算 | `Tools/run_all_analyses.py` | **Not run** in this candidate; integration tests do not replace the full pipeline. / 本候选版未运行，集成测试不能替代完整管线。 |
 
 ## Distribution boundary / 分发边界
