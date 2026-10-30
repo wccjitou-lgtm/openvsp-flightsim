@@ -13,6 +13,8 @@ jobs:
   test:
     name: Python and standalone C#
     runs-on: windows-latest
+    env:
+      PYTHONIOENCODING: utf-8
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
