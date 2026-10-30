@@ -1,0 +1,4 @@
+# Python dependencies used by the terrain tools and test suite.
+# OpenVSP's Python bindings are supplied by the OpenVSP installation, not PyPI.
+numpy==2.4.4
+Pillow==12.2.0

@@ -1,0 +1,21 @@
+OpenVSP FlightSim
+Copyright (c) 2026 wccjitou
+
+SCOPE OF ORIGINAL PROJECT RIGHTS
+
+The original project code, documentation, original aircraft models, and procedural assets are offered under the MIT License in LICENSE. This notice does not relicense third-party tools, libraries, or data.
+
+The maintainer confirms that the following aircraft models and their project-generated derivatives are original work by wccjitou and may be distributed under MIT:
+
+- TestUAV, including Data/TestUAV.vsp3, meshes, mass/aerodynamic reference data, and TestUAVImport outputs.
+- E2E_D, retained as a project-generated integration fixture.
+
+The mass-properties file under Tests/Fixtures is project-generated test data derived from TestUAV.
+
+The procedural terrain, textures, vegetation, rocks, animals, birds, and related generated assets are original project work. NACA airfoil coordinates generated directly by Tools/generate_airfoil_library.py are project-generated data; this statement does not extend to airfoil files copied from an OpenVSP installation.
+
+Third-party products are external dependencies unless explicitly listed in THIRD_PARTY_NOTICES.md. NASA, OpenVSP, Unity, Microsoft, and other third-party names are used for identification only and do not imply affiliation or endorsement.
+
+EXCLUDED DATA
+
+Clark Y.dat and Eppler E205.dat are not distributed in this public snapshot. The workshop can read airfoil data from the user's own OpenVSP installation; any copied coordinates require separate provenance and redistribution review before being added.

@@ -1,0 +1,165 @@
+{
+  "name": "TestUAV",
+  "units": {
+    "length": "m",
+    "mass": "kg",
+    "inertia": "kg*m^2",
+    "angle": "rad",
+    "force": "N"
+  },
+  "reference": {
+    "Sref_m2": 3.1,
+    "bref_m": 4.0,
+    "cref_m": 0.775,
+    "cg_m": [
+      1.461172784728376,
+      -2.3799805980779e-07,
+      0.05943470427273955
+    ]
+  },
+  "mass": {
+    "mass_kg": 14.09149345291824,
+    "inertia_kgm2": {
+      "Ixx": 0.3733776602530089,
+      "Iyy": 5.089859370942374,
+      "Izz": 5.160013319791342,
+      "Ixy": 0.0007279572341561494,
+      "Ixz": 0.3515369226122734,
+      "Iyz": 0.0009281343850180525
+    }
+  },
+  "aero": {
+    "trimPoint": {
+      "mach": 0.06,
+      "alpha_deg": 2.0,
+      "beta_deg": 0.0,
+      "note": "导数在该状态点线性化"
+    },
+    "CL0": -0.00010479180033606816,
+    "CLalpha": 4.69045,
+    "CLq": 11.8416314,
+    "CD0": 0.007316431742648723,
+    "k_induced": 0.05794153908657466,
+    "Cm0": 0.0016215190168295673,
+    "Cmalpha": -0.7662743,
+    "Cmq": -6.6311186,
+    "CYbeta": -0.2711343974205834,
+    "Clbeta": -0.0401380199027117,
+    "Cnbeta": 0.0576698886232042,
+    "CYp": -0.0429735,
+    "Clp": -0.429895,
+    "Cnp": -0.0424131,
+    "CYr": 0.2239156,
+    "Clr": 0.0480036,
+    "Cnr": -0.0768279,
+    "controls": {
+      "elevator": {
+        "CLde": 0.4706901,
+        "Cmde": -0.6731879,
+        "maxDeflectionDeg": 25.0
+      },
+      "aileron": {
+        "CYda": -0.003838,
+        "Clda": -0.1146078,
+        "Cnda": -0.0049492,
+        "maxDeflectionDeg": 20.0
+      },
+      "rudder": {
+        "CYdr": -0.1518638,
+        "Cldr": -0.0118145,
+        "Cndr": 0.0570061,
+        "maxDeflectionDeg": 25.0
+      }
+    }
+  },
+  "engine": {
+    "type": "simpleThrust",
+    "maxThrust_N": 48.37,
+    "note": "T = maxThrust_N * throttle * f(V), f(V)=1-clamp(V/Vref,0,0.5), Vref=60 m/s"
+  },
+  "gear": {
+    "model": "springDamper",
+    "wheels": [
+      {
+        "name": "nose",
+        "position_m": [
+          1.05,
+          0.0,
+          0.35
+        ],
+        "kN_per_m": 2000.0,
+        "cNs_per_m": 180.0,
+        "steerable": true,
+        "brake": false
+      },
+      {
+        "name": "mainL",
+        "position_m": [
+          -0.1,
+          0.55,
+          0.35
+        ],
+        "kN_per_m": 2000.0,
+        "cNs_per_m": 180.0,
+        "steerable": false,
+        "brake": true
+      },
+      {
+        "name": "mainR",
+        "position_m": [
+          -0.1,
+          -0.55,
+          0.35
+        ],
+        "kN_per_m": 2000.0,
+        "cNs_per_m": 180.0,
+        "steerable": false,
+        "brake": true
+      }
+    ],
+    "friction": {
+      "mu_lateral": 0.7,
+      "mu_rolling": 0.02,
+      "mu_brake": 0.45,
+      "maxSteerDeg": 25.0
+    }
+  },
+  "geometryMeshPath": "Meshes/TestUAV.obj",
+  "meta": {
+    "source": {
+      "massprops": "Data\\TestUAV_MassProps.txt",
+      "stab": "Data\\TestUAV_default.stab",
+      "polar": "Data\\TestUAV_alpha.polar",
+      "beta_polar": "Data\\TestUAV_beta.polar"
+    },
+    "lateralStaticDerivatives": {
+      "source": "beta_sweep_regression",
+      "stabCrosscheck": {
+        "CYbeta": -0.2192596,
+        "Clbeta": -0.0364339,
+        "Cnbeta": 0.0486233
+      }
+    },
+    "staticMargin": 0.163369,
+    "neutralPoint_m": 1.5877838,
+    "design": {
+      "htailHalfSpan_m": 0.7,
+      "htailRootChord_m": 0.3,
+      "htailTaper": 0.7,
+      "vtailHeight_m": 0.55,
+      "vtailRootChord_m": 0.35,
+      "vtailTaper": 0.6,
+      "tailX_m": 2.45,
+      "htailArm_m": 1.064
+    },
+    "clalpha_polar_crosscheck": 4.675081971391403,
+    "signConventions": {
+      "angularRates": "无量纲率: q_hat=q*cref/(2V), p_hat/r_hat=p*bref/(2V)",
+      "angleDerivatives": "per rad",
+      "elevator": "+ 偏转 = 后缘向下 (标准约定, ΔCL>0, ΔCm<0 低头; 镜像侧增益-1后实测 CLde>0, Cmde<0)",
+      "aileron": "+ 偏转 = 滚转力矩系数增量为负 (CMl 减小)",
+      "rudder": "+ 偏转 = CY<0, CMn>0",
+      "bodyAxes": "OpenVSP 机体轴 (X 后, Y 右, Z 上); gear.position_m 除外 (标准体轴 x 前/y 右/z 下)"
+    }
+  }
+}

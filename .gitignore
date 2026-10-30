@@ -1,0 +1,104 @@
+# Unity generated content
+[Ll]ibrary/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Tt]emp/
+[Uu]serSettings/
+MemoryCaptures/
+Recordings/
+sysinfo.txt
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.apk
+*.unitypackage
+boot.config
+OpenVSPFlightSim_BurstDebugInformation_DoNotShip/
+
+# Build and packaging output
+/Game/
+/Installer/
+/bin/
+/OpenVSP/
+/Python/
+*.exe
+*.dll
+*.pdb
+*.so
+*.dylib
+
+# Solver and workshop scratch data
+work/
+VspImports/**/work/
+VspImports/**/report.json
+*.npy
+Data/Terrain/**/*.raw
+Data/Terrain/**/*.u8
+Data/.vsptime
+Data/build_model.log
+Data/case.txt
+Data/case_*.log
+VspImports/**/*.log
+Data/TestUAV.adb*
+Data/TestUAV.case.*
+Data/TestUAV.group.*
+Data/TestUAV.history
+Data/TestUAV.lod
+Data/TestUAV.quad.cases
+Data/TestUAV.slc
+Data/TestUAV.vkey
+Data/TestUAV.vspgeom
+Data/TestUAV.vspaero
+Data/TestUAV.csf
+Data/TestUAV.cuts
+Data/TestUAV.flt
+Data/TestUAV*.tag
+Data/TestUAV*.taglist
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Editors and operating systems
+.vs/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Excluded pending embedded-airfoil license review
+VspImports/LogisticV0928/
+VspImports/logisitc/
+VspImports/logisti/
+VspImports/uav_71770e/
+VspImports/弹簧刀/
+Tests/Fixtures/SplitGroups/
+
+# Locally generated or copied OpenVSP airfoils require separate license review
+Data/Workshop/airfoils/Clark Y.dat
+Data/Workshop/airfoils/Eppler E205.dat
+
+# Local diagnostics
+gpu_log_*.csv
+*.log
+t4.as
+Unnamed_MassProps.txt
+!Tests/Fixtures/MassProps/Unnamed_MassProps.txt

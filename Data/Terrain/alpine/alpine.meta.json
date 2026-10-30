@@ -1,0 +1,46 @@
+{
+  "terrain": "alpine_4km",
+  "size_px": 2049,
+  "world_size_m": 4000.0,
+  "height_scale_m": 936.0,
+  "sea_level_offset_m": 0.0,
+  "seed": 31,
+  "airport_height_m": 100.0,
+  "edge_height_m": 130.0,
+  "biome": "alpine",
+  "corridor": {
+    "half_width_m": 100.0,
+    "approach_deg": 1.5,
+    "departure_deg": 2.0
+  },
+  "airport_platform": {
+    "east": [
+      -80.0,
+      170.0
+    ],
+    "north": [
+      -110.0,
+      910.0
+    ],
+    "feather_m": 140.0
+  },
+  "raw_file": "alpine.raw",
+  "row_order": "north_to_south",
+  "byte_order": "big-endian uint16",
+  "axis_convention": "行=北向索引增(向南), 列=东向索引增; 中心=世界原点",
+  "far_ground_rgb": [
+    0.8,
+    0.83,
+    0.87
+  ],
+  "platform_msl_m": 2000.0,
+  "valley": {
+    "center_east_m": 45.0,
+    "floor_half_width_m": 430.0,
+    "floor_half_width_min_m": 390.0
+  },
+  "creek": {
+    "depth_m": 2.2,
+    "half_width_m": 5.0
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "terrain": "mountain_fbm",
+  "size_px": 513,
+  "world_size_m": 2000.0,
+  "height_scale_m": 536.8608255881629,
+  "sea_level_offset_m": 0.0,
+  "raw_file": "mountain.raw",
+  "row_order": "north_to_south",
+  "byte_order": "big-endian uint16",
+  "axis_convention": "行=北向索引增(向南), 列=东向索引增"
+}

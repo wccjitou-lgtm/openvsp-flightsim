@@ -1,0 +1,56 @@
+name: Bug report / Bug 报告
+description: Report a reproducible problem / 报告可复现的问题
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please provide a minimal reproduction and remove credentials, personal paths, and user data.
+        感谢报告。请提供最小复现，并删除凭据、个人路径和用户数据。
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area / 影响范围
+      options:
+        - Unity flight or environment / Unity 飞行或场地
+        - Aircraft workshop / 机型工坊
+        - OpenVSP or Python pipeline / OpenVSP 或 Python 管线
+        - Standalone C# core / 独立 C# 核心
+        - Build, tests, or CI / 构建、测试或 CI
+        - Documentation / 文档
+        - Other / 其他
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment / 环境
+      description: OS, GPU, Unity, OpenVSP, Python, and commit SHA / 操作系统、GPU、Unity、OpenVSP、Python 与提交 SHA
+      placeholder: Windows 11; GPU; Unity 2022.3.62f3c1; OpenVSP 3.51.3; Python 3.13; commit ...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps and expected behavior / 复现步骤与预期行为
+      description: Exact commands or UI steps, and what you expected / 准确命令或界面步骤，以及预期结果
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and logs / 实际行为与日志
+      description: Include sanitized errors; do not paste secrets / 附脱敏错误，不要粘贴密钥
+      render: text
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks / 检查
+      options:
+        - label: I tested a clean checkout without Library, work, or bin. / 已在没有 Library、work、bin 的干净克隆中验证。
+          required: false
+        - label: I searched existing Issues and removed sensitive information. / 已搜索已有 Issue 并删除敏感信息。
+          required: true

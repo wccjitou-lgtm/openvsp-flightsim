@@ -1,0 +1,35 @@
+name: Feature request / 功能请求
+description: Propose a focused improvement / 提出聚焦的改进建议
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and use case / 问题与使用场景
+      description: What limitation are you trying to address? / 希望解决什么限制？
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change / 建议方案
+      description: Describe expected behavior, scope, and compatibility impact / 描述预期行为、范围和兼容性影响
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification idea / 验证思路
+      description: Which tests or manual checks would demonstrate success? / 哪些测试或手动检查能证明成功？
+    validations:
+      required: false
+  - type: checkboxes
+    id: assets
+    attributes:
+      label: Assets and scope / 资源与范围
+      options:
+        - label: Any third-party content I propose has an identifiable source and license. / 提议涉及的第三方内容均有明确来源和许可证。
+          required: false
+        - label: I understand PX4/HITL and installer redesign require separate plans. / 我理解 PX4/HITL 和安装器重构需要单独计划。
+          required: false

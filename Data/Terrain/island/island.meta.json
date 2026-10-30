@@ -1,0 +1,38 @@
+{
+  "terrain": "island_4km",
+  "size_px": 2049,
+  "world_size_m": 4000.0,
+  "height_scale_m": 153.0,
+  "sea_level_offset_m": 0.0,
+  "seed": 21,
+  "airport_height_m": 49.0,
+  "edge_height_m": 5.0,
+  "biome": "island",
+  "corridor": {
+    "half_width_m": 100.0,
+    "approach_deg": 1.5,
+    "departure_deg": 2.0
+  },
+  "airport_platform": {
+    "east": [
+      -80.0,
+      170.0
+    ],
+    "north": [
+      -110.0,
+      910.0
+    ],
+    "feather_m": 140.0
+  },
+  "raw_file": "island.raw",
+  "row_order": "north_to_south",
+  "byte_order": "big-endian uint16",
+  "axis_convention": "行=北向索引增(向南), 列=东向索引增; 中心=世界原点",
+  "sea_level_m": 40.0,
+  "far_ground_rgb": [
+    0.62,
+    0.55,
+    0.4
+  ],
+  "coast_file": "island.coast.json"
+}

@@ -1,0 +1,164 @@
+{
+  "name": "E2E_D",
+  "units": {
+    "length": "m",
+    "mass": "kg",
+    "inertia": "kg*m^2",
+    "angle": "rad",
+    "force": "N"
+  },
+  "reference": {
+    "Sref_m2": 0.98,
+    "bref_m": 2.8,
+    "cref_m": 0.35,
+    "cg_m": [
+      1.058860395014467,
+      -1.207877615825705e-18,
+      0.08431607377416737
+    ]
+  },
+  "mass": {
+    "mass_kg": 3.551615558011437,
+    "inertia_kgm2": {
+      "Ixx": 1.260137159740909,
+      "Iyy": 0.2968536426711496,
+      "Izz": 1.52440299836603,
+      "Ixy": -3.364067697070129e-07,
+      "Ixz": 0.06018893881870935,
+      "Iyz": 1.661202702982926e-06
+    }
+  },
+  "aero": {
+    "trimPoint": {
+      "mach": 0.06,
+      "alpha_deg": 2.0,
+      "beta_deg": 0.0,
+      "note": "导数在该状态点线性化"
+    },
+    "CL0": 0.001229578426670902,
+    "CLalpha": 4.8632406,
+    "CLq": 6.783255,
+    "CD0": 0.004923752725027822,
+    "k_induced": 0.03988636956910755,
+    "Cm0": 0.000759088146207329,
+    "Cmalpha": -0.4661925,
+    "Cmq": -1.7510017,
+    "CYbeta": -0.11592587590496499,
+    "Clbeta": -0.02348821353133805,
+    "Cnbeta": 0.026498373943189713,
+    "CYp": 0.0224277,
+    "Clp": -0.568594,
+    "Cnp": -0.0385529,
+    "CYr": 0.059029,
+    "Clr": 0.0505304,
+    "Cnr": -0.0132668,
+    "controls": {
+      "elevator": {
+        "CLde": 0.9405779,
+        "Cmde": -0.1782694,
+        "maxDeflectionDeg": 25.0
+      },
+      "aileron": {
+        "CYda": 0.0108856,
+        "Clda": -0.3209185,
+        "Cnda": -0.0079895,
+        "maxDeflectionDeg": 20.0
+      },
+      "rudder": {
+        "CYdr": -0.0652606,
+        "Cldr": -0.0034388,
+        "Cndr": 0.0152688,
+        "maxDeflectionDeg": 25.0
+      }
+    }
+  },
+  "engine": {
+    "type": "simpleThrust",
+    "maxThrust_N": 12.19,
+    "note": "T = maxThrust_N * throttle * f(V), f(V)=1-clamp(V/Vref,0,0.5), Vref=60 m/s"
+  },
+  "gear": {
+    "wheels": [
+      {
+        "name": "nose",
+        "position_m": [
+          0.20191533368886705,
+          1.207877615825705e-18,
+          0.08764940710746738
+        ],
+        "kN_per_m": 536.0207480629568,
+        "cNs_per_m": 23.056076873739975,
+        "steerable": true,
+        "brake": false
+      },
+      {
+        "name": "mainL",
+        "position_m": [
+          -0.10000000000000009,
+          1.4,
+          0.08764940710746738
+        ],
+        "kN_per_m": 893.3679134382614,
+        "cNs_per_m": 38.42679478956663,
+        "steerable": false,
+        "brake": true
+      },
+      {
+        "name": "mainR",
+        "position_m": [
+          -0.10000000000000009,
+          -1.4,
+          0.08764940710746738
+        ],
+        "kN_per_m": 893.3679134382614,
+        "cNs_per_m": 38.42679478956663,
+        "steerable": false,
+        "brake": true
+      }
+    ],
+    "friction": {
+      "mu_lateral": 0.7,
+      "mu_rolling": 0.02,
+      "mu_brake": 0.45,
+      "maxSteerDeg": 25.0
+    }
+  },
+  "geometryMeshPath": "E2E_D.stl",
+  "meta": {
+    "source": {
+      "massprops": "VspImports\\E2E_D\\work\\prep_massprops.txt",
+      "stab": "VspImports\\E2E_D\\work\\E2E_D_default.stab",
+      "polar": "VspImports\\E2E_D\\work\\E2E_D_alpha.polar",
+      "beta_polar": "VspImports\\E2E_D\\work\\E2E_D_beta.polar"
+    },
+    "lateralStaticDerivatives": {
+      "source": "beta_sweep_regression",
+      "stabCrosscheck": {
+        "CYbeta": -0.1143925,
+        "Clbeta": -0.0276769,
+        "Cnbeta": 0.0261531
+      }
+    },
+    "staticMargin": 0.0958605,
+    "neutralPoint_m": 1.0924116,
+    "design": {
+      "htailHalfSpan_m": 0.7,
+      "htailRootChord_m": 0.3,
+      "htailTaper": 0.7,
+      "vtailHeight_m": 0.55,
+      "vtailRootChord_m": 0.35,
+      "vtailTaper": 0.6,
+      "tailX_m": 2.45,
+      "htailArm_m": 1.466
+    },
+    "clalpha_polar_crosscheck": 4.884141730730421,
+    "signConventions": {
+      "angularRates": "无量纲率: q_hat=q*cref/(2V), p_hat/r_hat=p*bref/(2V)",
+      "angleDerivatives": "per rad",
+      "elevator": "+ 偏转 = 后缘向下 (标准约定, ΔCL>0, ΔCm<0 低头; 镜像侧增益-1后实测 CLde>0, Cmde<0)",
+      "aileron": "+ 偏转 = 滚转力矩系数增量为负 (CMl 减小)",
+      "rudder": "+ 偏转 = CY<0, CMn>0",
+      "bodyAxes": "OpenVSP 机体轴 (X 后, Y 右, Z 上); gear.position_m 除外 (标准体轴 x 前/y 右/z 下)"
+    }
+  }
+}

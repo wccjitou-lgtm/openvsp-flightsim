@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Python and standalone C#
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements-dev.txt
+
+      - name: Check repository hygiene
+        run: python -B Tools/check_repository.py
+
+      - name: Run Python tests
+        run: python -B -m unittest discover -s Tests -p "test_*.py"
+
+      - name: Build standalone C# targets
+        shell: bash
+        run: bash Tools/build_phase1.sh
+
+      - name: Run standalone C# tests and smoke test
+        shell: bash
+        run: |
+          cd bin
+          ./FlightDynamics.Tests.exe
+          ./ConsoleFlightSim.exe --headless 2
