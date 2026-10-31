@@ -54,6 +54,8 @@ Close other Unity instances using the project. Set `UNITY_EDITOR_PATH` and run:
 
 Do not add `-nographics`; HDRP rendering tests need a real graphics device. Do not add `-quit` to the test command. Inspect both the XML result and the editor log.
 
+`WorkshopPreviewRenderDiagPlayModeTests` is marked `[Explicit]` and is excluded from the default suite. It is a pixel-level diagnostic that must be run interactively from the Unity Test Runner when investigating preview rendering. Some batch/remote HDRP environments return a completely black frame even with D3D12; a black frame in that environment is not, by itself, evidence of a preview-code regression. An interactive run is still required for visual verification.
+
 ## Manual release checks
 
 From a fresh checkout without `Library`, `work`, or `bin`:

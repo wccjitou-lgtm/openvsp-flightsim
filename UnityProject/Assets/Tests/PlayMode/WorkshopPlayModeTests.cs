@@ -69,7 +69,7 @@ namespace FlightSim.Tests
         // ================= WorkshopStlLoader =================
 
         /// <summary>构造 OpenVSP 风格 ASCII STL (行首空格 + CRLF)。</summary>
-        private static string WriteTestStl(Vector3[] ovspTris, int triCount)
+        internal static string WriteTestStl(Vector3[] ovspTris, int triCount)
         {
             string path = Path.Combine(Application.temporaryCachePath, "workshop_test.stl");
             var sb = new System.Text.StringBuilder();

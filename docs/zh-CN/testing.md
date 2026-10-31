@@ -54,6 +54,8 @@ bash Tools/build_phase1.sh
 
 不要添加 `-nographics`，HDRP 渲染测试需要真实图形设备；也不要在测试命令中添加 `-quit`。同时检查 XML 结果和编辑器日志。
 
+`WorkshopPreviewRenderDiagPlayModeTests` 标记为 `[Explicit]`，默认套件不会运行。它是像素级诊断，需要在调查预览渲染时通过 Unity Test Runner 交互运行。部分批处理/远程 HDRP 环境即使使用 D3D12 也会返回全黑帧；这种环境中的黑图本身不能证明预览代码回归。视觉验证仍必须在交互图形环境中完成。
+
 ## 手动发布检查
 
 从没有 `Library`、`work` 和 `bin` 的全新克隆开始：
